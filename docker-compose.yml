@@ -1,0 +1,15 @@
+version: "3.5"
+
+services:
+  catalyst_center_pnp_automatic_claim:
+    image: ghcr.io/gve-sw/gve_devnet_catalyst_center_pnp_automatic_claim:latest
+    container_name: catalyst_center_pnp_automatic_claim
+    environment:
+      - DNAC_HOST=${DNAC_HOST}
+      - USERNAME=${USERNAME}
+      - PASSWORD=${PASSWORD}
+      - DAY0_TEMPLATE=${DAY0_TEMPLATE}
+      - AUTOCLAIM_DEVICE_PID=${AUTOCLAIM_DEVICE_PID}
+    volumes:
+      - config.yaml:/app/config.yaml
+    restart: "always"
